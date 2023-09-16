@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="shade"></div>
+    <img src="portrait.png"/>
+</div>
+
+</body>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+    }
+
+    .container {
+        position: relative;
+        border-radius: 50%;
+        width: 300px;
+        height: 300px;
+        cursor: pointer;
+    }
+
+    .container:hover .shade {
+        background-color: red;
+        opacity: 0.1;
+        top: 0;
+        cursor: pointer;
+    }
+
+    .shade {
+        position: absolute;
+        top: 61.8%;
+        border-radius: 50%;
+        width: 300px;
+        height: 300px;
+        transition: top 1.5s;
+    }
+
+    img {
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+    }
+</style>
+</html>
