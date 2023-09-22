@@ -5,12 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>背景式伪元素before应用</title>
+    <style>
+        .container {
+            margin: 0 auto;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 1px solid blue;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            position: absolute;
+            top: 50%;
+            left: -50%;
+            height: 600px;
+            width: 600px;
+            border-radius: 30%;
+            background-color: rgb(36, 36, 167);
+            content: '';
+            z-index: -1;
+            animation: bolangxian 3s ease-in-out infinite;
+        }
+
+        @keyframes bolangxian {
+            to {
+                transform: rotate(36deg);
+            }
+
+            from {
+                transform: rotate(396deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div>
-
-    </div>
+    <div class="container"></div>
+</body>
 </body>
 
 </html>
