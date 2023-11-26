@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>抽屉式圆形按钮</title>
+</head>
+<body>
+<div class="drawer-1">
+    <div class="drawer-content">
+        <span>原</span>
+        <span>始</span>
+        <span>形</span>
+        <span>态</span>
+    </div>
+</div>
+</body>
+<style>
+    body {
+        background-color: #22272e;
+    }
+
+
+    .drawer-1 {
+        margin: 400px;
+    }
+
+    .drawer-content {
+        border-radius: 22px;
+        border: 2px solid #444C56;
+        width: 40px;
+        height: 40px;
+        color: #ADBAC7;
+        text-align: end;
+        overflow: hidden;
+        line-height: 40px;
+        transition: all 0.5s ease;
+        display: flex;
+    }
+
+    .drawer-content span, .drawer-content:hover span {
+        letter-spacing: 5px;
+    }
+
+    .drawer-content:hover{
+        cursor: pointer;
+        overflow: unset;
+        text-align: unset;
+        width: 100%;
+        border-radius: 20px;
+        display: flex;
+    }
+
+
+</style>
+</html>
+
+

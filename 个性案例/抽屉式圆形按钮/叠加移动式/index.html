@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>抽屉式圆形按钮</title>
+</head>
+<body>
+<div class="drawer-button">
+    <div class="drawer-encircle"></div>
+    <div class="drawer-content">原始形态</div>
+</div>
+
+</body>
+<style>
+    body {
+        /* background-color: black; */
+        background-color: #22272e;
+    }
+
+    .drawer-button {
+        position: relative;
+        margin: 200px;
+    }
+
+    .drawer-1 {
+        margin: 400px;
+    }
+
+    .drawer-encircle {
+        border: 2px solid #444C56;
+        position: absolute;
+        top: 0;
+        z-index: 999;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    .drawer-content {
+        position: absolute;
+        background-color: #22272e;
+        color: #22272e;
+        top: 0;
+        letter-spacing: 10px;
+        display: flex;
+        height: 40px;
+        justify-content: start;
+        align-items: center;
+        border-radius: 20px;
+        padding: 0 10px;
+        transition: transform .3s ease;
+    }
+
+    .drawer-content::first-letter {
+        color: #ADBAC7;
+    }
+
+    .drawer-encircle:hover {
+        opacity: 0;
+        border: 0;
+        cursor: pointer;
+    }
+
+    .drawer-encircle:hover + .drawer-content {
+        border: 2px solid #444C56;
+        color: #ADBAC7;
+        transform: translate(-67%, 0);
+    }
+
+
+</style>
+</html>
+
+
