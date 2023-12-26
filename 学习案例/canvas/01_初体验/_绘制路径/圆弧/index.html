@@ -15,10 +15,10 @@
      有两个方法可以绘制圆弧：
 
      1、arc(x, y, r, startAngle, endAngle, anticlockwise):
-        以(x, y) 为圆心，以r 为半径，从 startAngle 弧度开始到endAngle弧度结束。anticlosewise 是布尔值，true 表示逆时针，false 表示顺时针(默认是顺时针)。
+     以(x, y) 为圆心，以r 为半径，从 startAngle 弧度开始到endAngle弧度结束。anticlosewise 是布尔值，true 表示逆时针，false 表示顺时针(默认是顺时针)。
 
      注意：  这里的度数都是弧度。
-            0 弧度是指的 x 轴正方向。
+     0 弧度是指的 x 轴正方向。
 
      radians=(Math.PI/180)*degrees   //角度转换成弧度
 
@@ -28,8 +28,7 @@
         const canvas1 = document.getElementById('canvas1')
         const ctx = canvas1.getContext('2d')
         ctx.beginPath()
-        ctx.moveTo(50, 50); //把画笔移动到指定的坐标
-        ctx.lineTo(200, 50);  //绘制一条从当前位置到指定坐标(200, 50)的直线.
+        ctx.arc(50, 50, 50, 2 * Math.PI, false)
         ctx.closePath(); //闭合路径。会拉一条从当前点到path起始点的直线。如果当前点与起始点重合，则什么都不做
         ctx.stroke(); //绘制路径。
     }
