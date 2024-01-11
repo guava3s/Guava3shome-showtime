@@ -65,6 +65,7 @@
             {src: '../../assets/image/yueshen(3).jpg'},
             {src: '../../assets/image/yueshen(4).jpg'}
         ]
+        const container = document.querySelector('.container')
         const ul = document.querySelector('ul')
         const img = document.querySelector('img')
         ul.children[0].className = 'lightenLi'
@@ -85,7 +86,15 @@
             }
         }
 
-        setInterval(startCarousel, 2000)
+        let timerId = setInterval(startCarousel, 2000)
+
+
+        container.addEventListener('mouseenter', function () {
+            clearInterval(timerId)
+        })
+        container.addEventListener('mouseleave', function () {
+            timerId = setInterval(startCarousel, 2000)
+        })
 
 
     })()
