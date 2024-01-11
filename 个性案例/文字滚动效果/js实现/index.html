@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文字滚动效果js实现</title>
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: purple;
+            height: 60px;
+            display: flex;
+            padding: 16px 10px;
+        }
+
+        .container div:first-child {
+            border-right: 4px solid red;
+            padding-right: 20px;
+            line-height: 28px;
+            height: 28px;
+        }
+
+        ul {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        li {
+            padding: 0;
+            font-size: 30px;
+            list-style: none; /*去除list 前面符号**/
+            height: 30px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div>Your say</div>
+    <ul>
+        <li>Please</li>
+        <li>Drink</li>
+        <li>Me</li>
+    </ul>
+</div>
+
+<script>
+
+    (function () {
+        const list = document.querySelector('ul')
+        const clientHeight = list.children[0].clientHeight
+
+        function copyNode() {
+            const node = list.children[0].cloneNode(true) // 参数为true,表示为深度克隆
+            list.appendChild(node)
+        }
+
+        copyNode()
+
+        let currentPosition = 0
+
+        function startScroll() {
+            currentPosition += clientHeight
+            if (currentPosition > (clientHeight * list.children.length - 1)) {
+                currentPosition = clientHeight
+            }
+            list.scrollTop = currentPosition
+        }
+
+        // 每隔1s执行一次滚动
+        setInterval(startScroll, 1500)
+    })()
+
+
+</script>
+</body>
+</html>
