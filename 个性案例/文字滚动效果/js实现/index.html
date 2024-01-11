@@ -53,26 +53,41 @@
     (function () {
         const list = document.querySelector('ul')
         const clientHeight = list.children[0].clientHeight
+        const scrollSpeed = 400
+        const scrollInterval = 10
+        let currentIndex = 0
 
         function copyNode() {
             const node = list.children[0].cloneNode(true) // 参数为true,表示为深度克隆
             list.appendChild(node)
         }
 
-        copyNode()
-
-        let currentPosition = 0
-
+        // 开始滚动
         function startScroll() {
-            currentPosition += clientHeight
-            if (currentPosition > (clientHeight * list.children.length - 1)) {
-                currentPosition = clientHeight
-            }
-            list.scrollTop = currentPosition
+
+            let from = currentIndex * clientHeight
+            currentIndex++
+            const to = currentIndex * clientHeight
+            const scrollF = scrollSpeed / scrollInterval // 单位滚动时间内的滚动频率
+            const diff = clientHeight / scrollF // 单位滚动时间内的滚动变化量
+            const timeId = setInterval(function () {
+                from += diff
+                // 判断是否到达下一节点距离
+                if (from >= to) {
+                    clearInterval(timeId)
+                    // 判断是否到达最终节点距离
+                    if (currentIndex >= list.children.length - 1) {
+                        from = 0
+                        currentIndex = 0
+                    }
+                }
+                list.scrollTop = from
+            }, scrollInterval)
         }
 
+        copyNode()
         // 每隔1s执行一次滚动
-        setInterval(startScroll, 1500)
+        setInterval(startScroll, 2000)
     })()
 
 
