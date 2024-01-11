@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+
+        img {
+            width: 60%;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 800px;
+            padding: 0 50px;
+            background-color: #444C56;
+            text-align: center;
+            position: relative;
+        }
+
+        .step {
+            position: absolute;
+            bottom: 20px;
+            left: 40%;
+        }
+
+        ul {
+            display: flex;
+            padding: 0;
+        }
+
+        li {
+            cursor: pointer;
+            list-style: none;
+            background-color: #c8d5d0;
+            height: 5px;
+            width: 40px;
+            padding: 0;
+            margin-right: 5px;
+
+        }
+
+        .lightenLi {
+            background-color: #00ffcc;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <img src="../../assets/image/yueshen(1).jpg">
+    <div class="step">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+<script>
+    (function () {
+        const imgInfoList = [
+            {src: '../../assets/image/yueshen(1).jpg'},
+            {src: '../../assets/image/yueshen(2).jpg'},
+            {src: '../../assets/image/yueshen(3).jpg'},
+            {src: '../../assets/image/yueshen(4).jpg'}
+        ]
+        const ul = document.querySelector('ul')
+        const img = document.querySelector('img')
+        ul.children[0].className = 'lightenLi'
+
+        let currentIndex = 0
+
+        function startCarousel() {
+            if (++currentIndex > imgInfoList.length - 1) {
+                currentIndex = 0
+            }
+            img.src = imgInfoList[currentIndex].src
+            for (let i = 0; i < ul.children.length; i++) {
+                if (i === currentIndex) {
+                    ul.children[i].className = 'lightenLi'
+                } else {
+                    ul.children[i].className = ''
+                }
+            }
+        }
+
+        setInterval(startCarousel, 2000)
+
+
+    })()
+</script>
+</body>
+</html>
