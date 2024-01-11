@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制圆弧</title>
+</head>
+
+
+<body>
+<div>
+    <canvas id="canvas1" width="500" height="500"></canvas>
+</div>
+<script>
+    /**
+     有两个方法可以绘制圆弧：
+
+     1、arc(x, y, r, startAngle, endAngle, anticlockwise):
+     以(x, y) 为圆心，以r 为半径，从 startAngle 弧度开始到endAngle弧度结束。anticlosewise 是布尔值，true 表示逆时针，false 表示顺时针(默认是顺时针)。
+
+     注意：  这里的度数都是弧度。
+     0 弧度是指的 x 轴正方向。
+
+     radians=(Math.PI/180)*degrees   //角度转换成弧度
+
+     2、arcTo(x1, y1, x2, y2, radius): 根据给定的控制点和半径画一段圆弧，最后再以直线连接两个控制点。
+     */
+    function draw1() {
+        const canvas1 = document.getElementById('canvas1')
+        const ctx = canvas1.getContext('2d')
+        ctx.beginPath()
+        ctx.arc(50, 50, 50, 2 * Math.PI, false)
+        ctx.closePath(); //闭合路径。会拉一条从当前点到path起始点的直线。如果当前点与起始点重合，则什么都不做
+        ctx.stroke(); //绘制路径。
+    }
+
+    draw1()
+</script>
+</body>
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+    }
+</style>
+</html>
